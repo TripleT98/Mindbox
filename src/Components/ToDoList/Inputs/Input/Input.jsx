@@ -1,8 +1,8 @@
 //styled components
-import {StyledInput,StyledInputContainer} from "./InputStyles";
+import {StyledInput,StyledInputContainer,StyledP} from "./InputStyles";
 //react hooks
 
-export default function Input({value, handler}){
+export default function Input({value, handler, name}){
 
   function inputHandler(e){
     let val = e.target.value;
@@ -10,7 +10,8 @@ export default function Input({value, handler}){
   }
 
   return <StyledInputContainer>
-            <StyledInput type="text" value={value} onChange={inputHandler}/>
+            <StyledP>{name}</StyledP>
+            <StyledInput name={name} type="text" value={value} onChange={inputHandler} />
          </StyledInputContainer>
 
 }

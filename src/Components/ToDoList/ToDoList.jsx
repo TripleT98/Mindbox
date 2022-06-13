@@ -5,50 +5,42 @@ import Inputs from "./Inputs/Inputs";
 import List from "./List/List";
 import Footer from "./Footer/Footer";
 //react hooks
-import {useState} from "react";
+import {useState, useMemo} from "react";
 //Context
 import Context from "./context";
+//utils
+import {checkId} from "./../../utils";
 
-
-let initialToDoes = [{
-  title: "Do it",
-  text: "Just Do it",
-  isDone: false,
-  id: 0,
-},
-{
-  title: "La la la",
-  text: "Sing a song",
-  isDone: false,
-  id: 1,
-},
-{
-  title: "Pump muscles",
-  text: "Dirty deeds done dirt cheap",
-  isDone: false,
-  id: 2,
-}]
 
 let StyledToDoList = styled.div`
-  width: 70%;
+  width: 1300px;
   height: 100px;
   background-color: rgb(179, 177, 122);
 `
 
 export default function ToDoList(){
 
-  let [todoes, addToDo] = useState(initialToDoes);
+  let [todoes, addToDo] = useState([]);
 
   function addToDoHandler(todo){
+    if(checkId(todoes,todo.id)){
+      return false;
+    }
     addToDo((prev)=>([...prev,todo]));
+  }
+
+  function removeToDoHandler(id){
+    addToDo((prev)=>prev.filter((e,i)=>e.id == id?false:true));
   }
 
   return <StyledToDoList>
           <Context.Provider value={{
-            addToDo: addToDoHandler
+            addToDo: addToDoHandler,
+            removeToDo: removeToDoHandler,
           }}>
             <Header />
             <Inputs/>
+            <hr/>
             <List list={todoes}/>
             <Footer />
           </Context.Provider>

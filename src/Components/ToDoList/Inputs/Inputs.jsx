@@ -12,8 +12,8 @@ export default function Inputs(){
   let [text, setText] = useState("");
 
   return <StyledInputs>
-            <Input value={title} handler={setTitle}/>
-            <Input value={text} handler={setText}/>
+            <Input name="Title" value={title} handler={setTitle}/>
+            <Input name="Description" value={text} handler={setText}/>
             <Button title={title} text={text}/>
          </StyledInputs>
 
