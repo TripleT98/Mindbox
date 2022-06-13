@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 let StyledToDo = styled.div`
   width: 700px;
-  height: max-content;
+  height: 80px;
   background-color: white;
   margin: 10px;
   padding: 10px;
@@ -11,6 +11,8 @@ let StyledToDo = styled.div`
   display: grid;
   grid-template-areas: "done title title delete"
                        "done date date delete";
+  grid-template-columns: 10% 40% 40% 10%;
+  font-size: 20px;
 `
 
 let StyledDate = styled.div`

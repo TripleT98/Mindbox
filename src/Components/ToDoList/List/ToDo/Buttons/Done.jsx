@@ -2,7 +2,5 @@
 import {StyledDone} from "./DoneStyles";
 
 export default function Done(){
-  return <StyledDone>
-          Done
-         </StyledDone>
+  return <StyledDone/>
 }

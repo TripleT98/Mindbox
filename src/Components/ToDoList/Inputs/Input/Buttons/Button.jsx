@@ -6,7 +6,7 @@ import context from "./../../../context";
 //utils
 import {hashCode} from "./../../../../../utils";
 
-export default function Button({title, text}){
+export default function Button({title, text, clear}){
   let ref = useRef(new Date().toLocaleDateString());
   let cont = useContext(context);
 
@@ -16,6 +16,7 @@ export default function Button({title, text}){
       title,text,isDone: false, date: ref.current, id:id,
     }
     cont.addToDo(todo);
+    clear();
   }
 
   return <StyledButton onClick={clickHandler}>

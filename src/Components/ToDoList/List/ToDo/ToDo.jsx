@@ -3,23 +3,26 @@ import {StyledToDo,StyledTitle,StyledDate} from "./ToDoStyles";
 //components
 import Delete from "./Buttons/Delete";
 import Done from "./Buttons/Done";
-//react hooks
-import {useState} from "react";
+//react hooks and HOC's
+import {useState, memo} from "react";
 
-export default function ToDo(props){
+function ToDo(props){
 
   let [deleteProcess, switchDelete] = useState(false);
 
   return <StyledToDo>
-          <StyledTitle>Title:{props.title}</StyledTitle>
+          <StyledTitle>{props.title}</StyledTitle>
 
-          <StyledDate>Date:{props.date}</StyledDate>
+          <StyledDate>{props.date}</StyledDate>
 
           <Done />
           <Delete id={props.id} />
          </StyledToDo>
 
 }
+
+ToDo = memo(ToDo);
+export default ToDo;
 
 /*
 <p>Text:{props.text}</p>
