@@ -5,11 +5,11 @@ import context from "./../../../context";
 //react hooks
 import {useContext} from "react";
 
-export default function Delete({id}){
+export default function Delete({id, isDone}){
 
   let con = useContext(context)
 
-  return <StyledDelete onClick={()=>{con.removeToDo(id)}}>
+  return <StyledDelete onClick={()=>{if(!isDone){con.removeToDo(id)}}} isDone={isDone}>
             Delete
          </StyledDelete>
 }

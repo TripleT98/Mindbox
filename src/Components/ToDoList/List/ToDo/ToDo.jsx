@@ -7,26 +7,18 @@ import Done from "./Buttons/Done";
 import {useState, memo} from "react";
 
 function ToDo(props){
-
   let [deleteProcess, switchDelete] = useState(false);
 
-  return <StyledToDo>
-          <StyledTitle>{props.title}</StyledTitle>
+  return <StyledToDo isDone={props.isDone}>
+          <StyledTitle isDone={props.isDone}>{props.title}</StyledTitle>
 
-          <StyledDate>{props.date}</StyledDate>
+          <StyledDate isDone={props.isDone}>{props.date}</StyledDate>
 
-          <Done />
-          <Delete id={props.id} />
+          <Done id={props.id} isDone={props.isDone}/>
+          <Delete id={props.id} isDone={props.isDone}/>
          </StyledToDo>
 
 }
 
 ToDo = memo(ToDo);
 export default ToDo;
-
-/*
-<p>Text:{props.text}</p>
-<p>isDone:{props.isDone?"true":"false"}</p>
-<p>id:{props.id}</p>
-
-*/

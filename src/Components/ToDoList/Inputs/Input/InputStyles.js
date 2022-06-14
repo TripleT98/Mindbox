@@ -1,6 +1,9 @@
-import styled from "styled-components";
+import styled,{css, keyframes} from "styled-components";
 
 let StyledInputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 let StyledInput = styled.input`
@@ -11,17 +14,37 @@ let StyledInput = styled.input`
   font-size: ${({name})=>name == "Description"? "25px":"20px"};
   padding: 20px;
   outline: none;
-  &:hover{
+  ${({blur})=>blur && css`
     box-shadow: 0px 0px 5px rgb(133, 215, 218);
-  }
+  `}
 `
 
 let StyledP = styled.p`
   font-size: 30px;
-  margin: 10px;
+  margin: 0px;
   text-align: center;
 `
 
+let StyledError = styled.div`
+  color: rgb(240, 101, 101);
+  height: 20px;
+  position: realtive;
+`
+
+let drop = keyframes`
+0%{
+  opacity:0;
+  top: -20px;
+}
+99%{
+  opacity: 1;
+}
+100%{
+  opacity: 1;
+  top: 0px;
+}
+`
+
 export {
-  StyledInput,StyledInputContainer,StyledP
+  StyledInput,StyledInputContainer,StyledP,StyledError
 }
