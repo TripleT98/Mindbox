@@ -1,14 +1,10 @@
 import styled,{css} from "styled-components";
 
 let StyledFilterBar = styled.div`
-  position: absolute;
   width: 350px;
-  height: 80px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  right: 150px;
-  bottom: 10px;
 `
 
 let StyledButton = styled.div`
