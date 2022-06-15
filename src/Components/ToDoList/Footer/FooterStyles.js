@@ -5,7 +5,8 @@ let StyledFooter = styled.footer`
   width: 100%;
   height: 70px;
   background-color: rgb(207, 238, 237);
-  position: relative;
+  position: absolute;
+  bottom: 0px;
   display: flex;
   justify-content: center;
   &:before{
@@ -22,7 +23,7 @@ let StyledFooter = styled.footer`
     fill: white;
     transition-duration: .2s;
   }
-  & *:hover {
+  & div:hover * {
     cursor: pointer;
     fill: rgb(72, 163, 228);
   }

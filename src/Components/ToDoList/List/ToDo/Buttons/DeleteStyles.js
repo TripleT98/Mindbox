@@ -2,8 +2,9 @@ import styled, {css} from "styled-components";
 
 let StyledDelete = styled.div`
   background-color: white;
-  color: white;
-  background-color: rgb(238, 75, 75);
+  color: rgb(238, 75, 75);
+  background-color: white;
+  border: 3px solid rgb(238, 75, 75);
   border-radius: 10px;
   grid-area: delete;
   display: flex;
@@ -12,12 +13,11 @@ let StyledDelete = styled.div`
   transition-duration: .4s;
   font-weight: 100;
   ${({isDone})=>isDone?css`
-    background-color: rgba(238, 75, 75, .4);
+    display: none;
   `:css`
     &:hover{
-      color: rgb(238, 75, 75);
-      border: 3px solid rgb(238, 75, 75);
-      background-color: white;
+      color: white;
+      background-color: rgb(238, 75, 75);
       cursor: pointer;
     }
   `}

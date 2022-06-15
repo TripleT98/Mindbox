@@ -8,7 +8,7 @@ let StyledInputContainer = styled.div`
 
 let StyledInput = styled.input`
   width: ${({name})=>name == "Title"? "300px":"1000px"};
-  height: ${({name})=>name == "Description"? "100px":"50px"};
+  height: ${({name})=>name == "Description"? "80px":"30px"};
   border-radius: 30px;
   border: .5px solid rgb(133, 215, 218);
   font-size: ${({name})=>name == "Description"? "25px":"20px"};
@@ -21,8 +21,8 @@ let StyledInput = styled.input`
 
 let StyledP = styled.p`
   font-size: 30px;
-  margin: 0px;
   text-align: center;
+  letter-spacing: 8px;
 `
 
 let StyledError = styled.div`

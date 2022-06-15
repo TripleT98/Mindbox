@@ -4,7 +4,7 @@ function hashCode(string) {
   for (i = 0; i < string.length; i++) {
     chr   = string.charCodeAt(i);
     hash  = ((hash << 5) - hash) + chr;
-    hash |= 0; // Convert to 32bit integer
+    hash |= 0;
   }
   return hash;
 };
@@ -13,6 +13,12 @@ function checkId(arr,id){
   return arr.some((e,i)=>e.id == id);
 }
 
+let enumObj = {
+  all:0,
+  active:1,
+  completed:2,
+}
+
 export {
-  hashCode, checkId
+  hashCode, checkId, enumObj
 }

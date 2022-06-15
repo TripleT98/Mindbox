@@ -1,38 +1,30 @@
-import styled from "styled-components";
+//styled components
+import {StyledToDoList, StyledHr} from "./ToDoListStyles";
 //components
 import Header from "./Header/Header";
 import Inputs from "./Inputs/Inputs";
 import List from "./List/List";
 import Footer from "./Footer/Footer";
 //react hooks
-import {useState, useMemo} from "react";
+import {useState, useEffect} from "react";
 //Context
 import Context from "./context";
 //utils
 import {checkId} from "./../../utils";
 
 
-let StyledToDoList = styled.div`
-  width: 1300px;
-  height: 100vh;
-`
 
-let StyledHr = styled.hr`
-    border: none;
-    color: rgb(207, 238, 237);
-    background-color: rgb(207, 238, 237);
-    height: 2px;
-    position: relative;
-`
 
 export default function ToDoList(){
 
   let [todoes, addToDo] = useState([]);
+  let [filterStatus, filterIt] = useState(0);
 
   function addToDoHandler(todo){
     if(checkId(todoes,todo.id)){
       return false;
-    }
+    };
+
     addToDo((prev)=>([todo,...prev]));
   }
 
@@ -44,16 +36,22 @@ export default function ToDoList(){
     addToDo((prev)=>prev.map((e,i)=>{if(e.id == id){e.isDone = true};return e}));
   }
 
+  function clearCompletedHandler(){
+    addToDo((prev)=>prev.filter((e,i)=>e.isDone?false:true));
+  }
+
   return <StyledToDoList>
           <Context.Provider value={{
             addToDo: addToDoHandler,
             removeToDo: removeToDoHandler,
-            finish: finishTask
+            finish: finishTask,
+            filterStatus,filterIt,
+            clearCompleted:clearCompletedHandler,
           }}>
             <Header />
             <Inputs/>
             <StyledHr/>
-            <List list={todoes}/>
+            <List list={todoes} filterStatus={filterStatus}/>
             <Footer />
           </Context.Provider>
          </StyledToDoList>
