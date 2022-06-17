@@ -5,6 +5,7 @@ import Header from "./Header/Header";
 import Inputs from "./Inputs/Inputs";
 import List from "./List/List";
 import Footer from "./Footer/Footer";
+import Dropdown from "./Dropdown/Dropdown";
 //react hooks
 import {useState, useEffect} from "react";
 //Context
@@ -19,6 +20,8 @@ export default function ToDoList(){
 
   let [todoes, addToDo] = useState([]);
   let [filterStatus, filterIt] = useState(0);
+  let [timeFilter, setTimeFilter] = useState(0);
+  let [lilWindowState, setLilWindowState] = useState(false);
 
   useEffect(()=>{
     let arr = [];
@@ -29,7 +32,13 @@ export default function ToDoList(){
       arr.push(JSON.parse(localStorage.getItem(key)));
     }
     addToDo(arr);
-  },[])
+    setLilWindowState(window.innerWidth < 590);
+  },[]);
+
+  useEffect(()=>{
+    window.addEventListener("resize", lilWindowHandler);
+    return ()=>window.removeEventListener("resize", lilWindowHandler);
+  },[lilWindowState])
 
   function addToDoHandler(todo){
     if(checkId(todoes,todo.id)){
@@ -48,8 +57,18 @@ export default function ToDoList(){
     addToDo((prev)=>prev.map((e,i)=>{if(e.id == id){e.isDone = true;localStorage.removeItem(e.id);localStorage.setItem(e.id, JSON.stringify(e))};return e}));
   }
 
-  function clearCompletedHandler(){
+  function clearCompletedHandler(e){
     addToDo((prev)=>prev.filter((e,i)=>{if(e.isDone){localStorage.removeItem(e.id)};return e.isDone?false:true}));
+    e.stopPropagation();
+  }
+
+  function lilWindowHandler(e){
+    let iW = e.target.innerWidth;
+      if(iW < 590 && !lilWindowState){
+        setLilWindowState(true);
+      }else if(iW > 590 && lilWindowState){
+        setLilWindowState(false);
+      }
   }
 
   return <StyledToDoList>
@@ -59,11 +78,14 @@ export default function ToDoList(){
             finish: finishTask,
             filterStatus,filterIt,
             clearCompleted:clearCompletedHandler,
+            setTimeFilter,
+            lilWindowState
           }}>
+            {lilWindowState && <Dropdown></Dropdown>}
             <Header />
             <Inputs/>
             <StyledHr/>
-            <List list={todoes} filterStatus={filterStatus}/>
+            <List list={todoes} filterStatus={filterStatus} timeFilter={timeFilter}/>
             <Footer />
           </Context.Provider>
          </StyledToDoList>

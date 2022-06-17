@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 let StyledFooter = styled.footer`
   width: 100%;
-  height: 70px;
+  height: 50px;
   background-color: rgb(207, 238, 237);
   position: absolute;
   bottom: 0px;
@@ -15,7 +15,7 @@ let StyledFooter = styled.footer`
     height: 20px;
     background-color: aqua;
     position: absolute;
-    top: -20px;
+    top: -15px;
     left: 0px;
     background:linear-gradient(to top, rgb(207, 238, 237), transparent);
   }

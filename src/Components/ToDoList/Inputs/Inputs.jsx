@@ -28,10 +28,11 @@ export default function Inputs(){
   }
 
   return <StyledInputs>
-            <Input name="Title" value={title} handler={setTitle} validators={[isEmpty, maxLength(30), minLength(5)]} blur={titleBlur} switchBlur={switchTitleBlur} visited={isVisitedTitle} visit={visitTitle} errorM={titleError} setErrorM={setTitleError} />
+            <Input name="Title" value={title} handler={setTitle} validators={[isEmpty, maxLength(20), minLength(5)]} blur={titleBlur} switchBlur={switchTitleBlur} visited={isVisitedTitle} visit={visitTitle} errorM={titleError} setErrorM={setTitleError} />
             <Input name="Description" value={text} handler={setText} validators={[maxLength(70)]} blur={textBlur} switchBlur={switchTextBlur} visited={isVisitedText} visit={visitText} errorM={textError} setErrorM={setTextError} />
-            <Button title={title} text={text} clear={clear} isError={(titleError.length !== 0 || textError.length !== 0) || title.length == 0}/>
-            <FilterBar />
+            <FilterBar>
+                  <Button title={title} text={text} clear={clear} isError={(titleError.length !== 0 || textError.length !== 0) || title.length == 0}/>
+            </FilterBar>
          </StyledInputs>
 
 }

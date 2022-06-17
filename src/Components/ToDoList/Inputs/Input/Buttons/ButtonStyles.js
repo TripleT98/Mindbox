@@ -21,6 +21,16 @@ let StyledButton = styled.button`
     border: 3px solid rgb(55, 233, 110);
   }
   `}
+  @media(max-height: 800px){
+    width: 60px;
+    height: 35px;
+    font-size: 15px;
+  }
+  @media(max-width:660px){
+    width: 50px;
+    height: 35px;
+    font-size: 12px;
+  }
 `
 
 export {

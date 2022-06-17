@@ -1,21 +1,47 @@
-import styled,{css} from "styled-components";
+import styled,{css, keyframes} from "styled-components";
 
+let fade = keyframes`
+0%{
+  opacity: 0;
+}
+100%{
+  opacity: 1;
+}
+`
 let StyledToDo = styled.div`
+  display: flex;
   width: 500px;
   height: 80px;
   margin: 10px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 20px;
-  display: grid;
-  grid-template-areas: "done title title delete"
-                       "done date date delete";
-  grid-template-columns: 10% 40% 35% 15%;
   font-size: 20px;
   ${({isDone})=>isDone && css`
     color: rgb(185, 185, 185);
     background-color: rgb(219, 219, 219);
+    transition-duration: .3s;
   `}
+  animation: ${fade} linear forwards .5s;
+  @media(max-height: 800px){
+    height: 63px;
+    border-radius: 13px;
+  }
+  position: relative;
+`
+
+let StyledBlock = styled.div`
+  width: ${({width})=>width + "%"};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+`
+
+let StyledMain = styled.div`
+  display: flex;
+  width: 100%;
 `
 
 let StyledDate = styled.div`
@@ -29,11 +55,12 @@ let StyledDate = styled.div`
 let StyledTitle = styled.div`
   grid-area: title;
   text-align: center;
+  width: min-content;
   ${({isDone})=>isDone && css`
     text-decoration: line-through;
   `}
 `
 
 export {
-  StyledToDo,StyledTitle,StyledDate
+  StyledToDo,StyledTitle,StyledDate,StyledBlock,StyledMain
 }

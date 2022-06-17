@@ -13,6 +13,10 @@ function checkId(arr,id){
   return arr.some((e,i)=>e.id == id);
 }
 
+function getMS(days){
+  return Number(days)*86400000;
+}
+
 let enumObj = {
   all:0,
   active:1,
@@ -20,5 +24,5 @@ let enumObj = {
 }
 
 export {
-  hashCode, checkId, enumObj
+  hashCode, checkId, enumObj, getMS
 }

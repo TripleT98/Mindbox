@@ -2,9 +2,13 @@ import styled, {css} from "styled-components";
 
 let StyledDelete = styled.div`
   background-color: white;
+  width: 60px;
+  height: 60px;
+  max-width: 100%;
+  padding: 5px;
   color: rgb(238, 75, 75);
   background-color: white;
-  border: 3px solid rgb(238, 75, 75);
+  border: 2px solid rgb(238, 75, 75);
   border-radius: 10px;
   grid-area: delete;
   display: flex;
@@ -12,6 +16,7 @@ let StyledDelete = styled.div`
   align-items: center;
   transition-duration: .4s;
   font-weight: 100;
+  font-size: 18px;
   ${({isDone})=>isDone?css`
     display: none;
   `:css`
@@ -21,6 +26,15 @@ let StyledDelete = styled.div`
       cursor: pointer;
     }
   `}
+  @media(max-height: 800px){
+    font-size: 15px;
+    height: 40px;
+  }
+  @media(max-width: 615px){
+    font-size: 15px;
+    height: 30px;
+  }
+
 `
 
 export {

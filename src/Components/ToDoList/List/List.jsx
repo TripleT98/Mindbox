@@ -5,11 +5,18 @@ import {memo} from "react";
 //components
 import ToDo from "./ToDo/ToDo";
 //utils
-import {enumObj} from "./../../../utils";
+import {enumObj, getMS} from "./../../../utils";
 
-function List({list, filterStatus}){
+function List({list, filterStatus, timeFilter}){
 
   let {all, active, completed} = enumObj;
+
+  if(timeFilter != 0){
+    let date = new Date();
+    date = date/1;
+    let ms = getMS(timeFilter);
+    list = list.filter((e,i)=> date - e.timestamp < ms);
+  }
 
   if(filterStatus != all){
     switch (filterStatus){
@@ -19,6 +26,7 @@ function List({list, filterStatus}){
         break;
     }
   }
+
   return <StyledList>
             {list.length != 0 ? list.map((e,i)=><ToDo key={e.id} {...e}/>):
             <StyledFallback>{filterStatus == 0?"U have no todos yet":"This category is empty"}</StyledFallback>}

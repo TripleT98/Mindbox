@@ -8,7 +8,7 @@ let StyledInputContainer = styled.div`
 
 let StyledInput = styled.input`
   width: ${({name})=>name == "Title"? "300px":"1000px"};
-  height: ${({name})=>name == "Description"? "80px":"30px"};
+  height: ${({name})=>name == "Description"?"80px":"30px"};
   border-radius: 30px;
   border: .5px solid rgb(133, 215, 218);
   font-size: ${({name})=>name == "Description"? "25px":"20px"};
@@ -17,18 +17,51 @@ let StyledInput = styled.input`
   ${({blur})=>blur && css`
     box-shadow: 0px 0px 5px rgb(133, 215, 218);
   `}
+  @media(max-width: 1024px){
+    width: ${({name})=>name == "Title"? "300px":"700px"};
+    height: ${({name})=>name == "Description"?"70px":"28px"};
+  }
+  @media(max-width: 900px){
+    width: ${({name})=>name == "Title"? "300px":"600px"};
+    height: ${({name})=>name == "Description"?"65px":"25px"};
+  }
+  @media(max-height: 800px){
+    font-size: ${({name})=>name == "Description"? "20px":"20px"};
+    height: ${({name})=>name == "Description"?"40px":"20px"};
+  }
+  @media(max-width: 615px){
+    width: ${({name})=>name == "Title"? "260px":"530px"};
+    height: ${({name})=>name == "Description"?"60px":"20px"};
+  }
+  @media(max-width: 415px){
+    width: ${({name})=>name == "Title"? "250px":"360px"};
+    height: ${({name})=>name == "Description"?"55px":"18px"};
+  }
+
 `
 
 let StyledP = styled.p`
   font-size: 30px;
   text-align: center;
   letter-spacing: 8px;
+  @media(max-height: 800px){
+    font-size: 25px;
+  }
+  @media(max-width: 615px){
+    font-size: 22px;
+  }
+  @media(max-width: 415px){
+    font-size: 19px;
+  }
 `
 
 let StyledError = styled.div`
   color: rgb(240, 101, 101);
   height: 20px;
   position: realtive;
+  @media(max-height: 800px){
+    font-size: 13px;
+  }
 `
 
 let drop = keyframes`
