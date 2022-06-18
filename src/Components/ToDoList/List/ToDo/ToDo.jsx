@@ -8,7 +8,6 @@ import Done from "./Buttons/Done";
 import {useState, memo} from "react";
 
 function ToDo(props){
-
   let [deleteProcess, switchDelete] = useState(false);
   let [isOpen, open] = useState();
 
@@ -16,7 +15,7 @@ function ToDo(props){
            <StyledToDo isDone={props.isDone} isOpen={isOpen}>
              <StyledMain>
               <StyledBlock width="15">
-                <Done id={props.id} isDone={props.isDone}/>
+                <Done id={props.id} isDone={props.isDone} />
               </StyledBlock>
 
               <StyledBlock width="65">
