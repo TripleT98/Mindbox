@@ -32,6 +32,11 @@ function ToDo(props){
                 <StyledArrow isOpen={isOpen} onClick={()=>open(!isOpen)}/>
               </StyledBlock>
             </StyledMain>
+            <StyledDescription isOpen={isOpen}>
+              <hr style={{marginTop: "10px"}}/>
+              {props.text.length != 0 ? <><p style={{letterSpacing: "5px"}}>Description</p>
+              {props.text}</> : "No Description"}
+            </StyledDescription>
            </StyledToDo>
          </>
 

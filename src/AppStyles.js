@@ -11,6 +11,8 @@ let Global = createGlobalStyle`
 let StyledApp = styled.div`
   display: flex;
   justify-content: center;
+  background-color: ${({theme})=>theme == "dark" ? "#111111" : "white"};
+  transition-duration: .3s;
 `
 
 export {

@@ -6,7 +6,7 @@ import context from "./../../../context";
 //utils
 import {hashCode} from "./../../../../../utils";
 
-export default function Button({title, text, clear, isError}){
+export default function Button({title, text, clear, isError, setErrorM}){
   let ref = useRef(new Date().toLocaleDateString());
   let ms = useRef(new Date());
   ms = ms.current/1;
@@ -18,7 +18,7 @@ export default function Button({title, text, clear, isError}){
     let todo = {
       title,text,isDone: false, date: ref.current, id:id, timestamp: ms
     }
-    cont.addToDo(todo);
+    cont.addToDo(todo, setErrorM);
     clear();
   }
 

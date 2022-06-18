@@ -4,7 +4,8 @@ import styled from "styled-components";
 let StyledFooter = styled.footer`
   width: 100%;
   height: 50px;
-  background-color: rgb(207, 238, 237);
+  background-color: ${({theme})=>theme == "bright" ? "rgb(207, 238, 237)" : "#222222"};
+  transition-duration: .3s;
   position: absolute;
   bottom: 0px;
   display: flex;
@@ -17,7 +18,7 @@ let StyledFooter = styled.footer`
     position: absolute;
     top: -15px;
     left: 0px;
-    background:linear-gradient(to top, rgb(207, 238, 237), transparent);
+    background:${({theme})=>theme == "bright" ? "linear-gradient(to top, rgb(207, 238, 237), transparent)" : "linear-gradient(to top, #222222, transparent)"};
   }
   & * {
     fill: white;
@@ -25,7 +26,7 @@ let StyledFooter = styled.footer`
   }
   & div:hover * {
     cursor: pointer;
-    fill: rgb(72, 163, 228);
+    fill: ${({theme})=>theme == "bright" ? "rgb(72, 163, 228)" : "rgb(246, 55, 55)"};
   }
 `
 

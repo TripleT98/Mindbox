@@ -16,7 +16,7 @@ import {checkId} from "./../../utils";
 
 
 
-export default function ToDoList(){
+export default function ToDoList(props){
 
   let [todoes, addToDo] = useState([]);
   let [filterStatus, filterIt] = useState(0);
@@ -40,8 +40,9 @@ export default function ToDoList(){
     return ()=>window.removeEventListener("resize", lilWindowHandler);
   },[lilWindowState])
 
-  function addToDoHandler(todo){
+  function addToDoHandler(todo, sameIdErrorHandler){
     if(checkId(todoes,todo.id)){
+      sameIdErrorHandler("Existing title");
       return false;
     };
     localStorage.setItem(todo.id, JSON.stringify(todo));
@@ -71,7 +72,7 @@ export default function ToDoList(){
       }
   }
 
-  return <StyledToDoList>
+  return <StyledToDoList theme={props.theme}>
           <Context.Provider value={{
             addToDo: addToDoHandler,
             removeToDo: removeToDoHandler,
@@ -79,14 +80,15 @@ export default function ToDoList(){
             filterStatus,filterIt,
             clearCompleted:clearCompletedHandler,
             setTimeFilter,
-            lilWindowState
+            lilWindowState,
+            theme: props.theme
           }}>
-            {lilWindowState && <Dropdown></Dropdown>}
-            <Header />
-            <Inputs/>
-            <StyledHr/>
+            {lilWindowState && <Dropdown theme={props.theme} />}
+            <Header setTheme={props.setTheme} theme={props.theme}/>
+            <Inputs theme={props.theme}/>
+            <StyledHr theme={props.theme}/>
             <List list={todoes} filterStatus={filterStatus} timeFilter={timeFilter}/>
-            <Footer />
+            <Footer theme={props.theme}/>
           </Context.Provider>
          </StyledToDoList>
 

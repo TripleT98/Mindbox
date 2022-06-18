@@ -25,7 +25,7 @@ let StyledArrow = styled.div`
   clip-path: polygon(10% 10%, 30% 10%, 50% 50%, 70% 10%, 90% 10%, 50% 90%, 10% 10%);
   transition-duration: .3s;
   &:hover{
-    background-color: rgb(110, 192, 238);
+    background-color: ${({theme})=>theme == "bright" ? "rgb(110, 192, 238)" : "rgb(238, 75, 75)"};
     cursor: pointer;
   }
   ${({isOpen})=>isOpen === true && css`

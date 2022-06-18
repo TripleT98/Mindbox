@@ -5,6 +5,9 @@ let StyledToDoList = styled.div`
   height: 100vh;
   position: relative;
   overflow: hidden;
+  background-color: ${({theme})=>theme == "bright" ? "white" : "#373737"};
+  color: ${({theme})=>theme == "bright" ? "black" : "white"};
+  transition-duration: .3s;
   @media(max-width: 1024px){
     width: 900px;
   }

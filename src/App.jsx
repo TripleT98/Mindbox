@@ -2,12 +2,18 @@
 import {Global,StyledApp} from "./AppStyles";
 //components
 import ToDoList from "./Components/ToDoList/ToDoList";
+//react hooks
+import {useState} from "react";
 
 function App() {
+
+  let [theme, setTheme] = useState("bright");
+  let [lang, setLang] = useState("eng");
+
   return (
-    <StyledApp>
+    <StyledApp theme={theme}>
       <Global/>
-      <ToDoList/>
+      <ToDoList theme={theme} setTheme={setTheme} lang={lang} setLang={setLang}/>
     </StyledApp>
   );
 }

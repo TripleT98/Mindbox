@@ -3,7 +3,8 @@ import styled from "styled-components";
 let StyledInputs = styled.div`
   width: 100%;
   height: max-content;
-  background-color: white;
+  background-color: ${({theme})=>theme == "bright" ? "white" : "#373737"};
+  transition-duration: .3s;
   padding: 10px;
   display: flex;
   flex-direction: column;

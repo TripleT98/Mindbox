@@ -3,11 +3,11 @@ import styled, {css} from "styled-components";
 let StyledDelete = styled.div`
   background-color: white;
   width: 60px;
-  height: 60px;
+  height: 50px;
   max-width: 100%;
   padding: 5px;
   color: rgb(238, 75, 75);
-  background-color: white;
+  background-color: ${({theme})=>theme == "bright" ? "white" : "#373737"};
   border: 2px solid rgb(238, 75, 75);
   border-radius: 10px;
   grid-area: delete;
@@ -21,7 +21,7 @@ let StyledDelete = styled.div`
     display: none;
   `:css`
     &:hover{
-      color: white;
+      color: ${({theme})=>theme == "bright" ? "white" : "#373737"};
       background-color: rgb(238, 75, 75);
       cursor: pointer;
     }

@@ -37,6 +37,14 @@ let StyledInput = styled.input`
     width: ${({name})=>name == "Title"? "250px":"360px"};
     height: ${({name})=>name == "Description"?"55px":"18px"};
   }
+  @media(max-width: 415px){
+    width: ${({name})=>name == "Title"? "220px":"310px"};
+    height: ${({name})=>name == "Description"?"55px":"18px"};
+  }
+  @media(max-width: 310px){
+    width: ${({name})=>name == "Title"? "220px":"310px"};
+    height: ${({name})=>name == "Description"?"55px":"18px"};
+  }
 
 `
 

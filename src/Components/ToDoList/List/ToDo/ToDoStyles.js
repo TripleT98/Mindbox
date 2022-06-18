@@ -1,5 +1,34 @@
 import styled,{css, keyframes} from "styled-components";
 
+let drop = keyframes`
+0%{
+  height: 0px;
+  opacity: 0;
+}
+70%{
+  height: 70px;
+  opacity: 0;
+}
+100%{
+  height: 70px;
+  opacity: 1;
+}
+`
+
+let lift = keyframes`
+0%{
+  height: 70px;
+  opacity: 1;
+}
+30%{
+  opacity: 0;
+  height: 70px;
+}
+100%{
+  height: 0px;
+}
+`
+
 let fade = keyframes`
 0%{
   opacity: 0;
@@ -10,8 +39,8 @@ let fade = keyframes`
 `
 let StyledToDo = styled.div`
   display: flex;
+  flex-direction: column;
   width: 500px;
-  height: 80px;
   margin: 10px;
   padding: 10px;
   border: 1px solid black;
@@ -61,6 +90,38 @@ let StyledTitle = styled.div`
   `}
 `
 
+let StyledDescription = styled.div`
+  width: 100%;
+  opacity: 0;
+  padding-left: 10px;
+  height: 0px;
+  ${({isOpen})=>{if(isOpen === true){
+    return css`
+      animation: ${drop} .3s linear forwards;
+    `
+  }else if(isOpen === false){
+    return css`
+      animation: ${lift} .3s linear forwards;
+    `}}}
+`
+
+/*
+isOpen?css`
+  animation: ${drop} .3s linear forwards;
+`:css`
+  animation: ${lift} .3s linear forwards;
+`
+
+if(isOpen === true){
+  return css`
+    animation: ${drop} .3s linear forwards;
+  `
+}else if(isOpen === false){
+  return css`
+    animation: ${lift} .3s linear forwards;
+  `
+}*/
+
 export {
-  StyledToDo,StyledTitle,StyledDate,StyledBlock,StyledMain
+  StyledToDo,StyledTitle,StyledDate,StyledBlock,StyledMain,StyledDescription
 }

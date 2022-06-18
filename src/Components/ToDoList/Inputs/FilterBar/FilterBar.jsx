@@ -12,7 +12,7 @@ import {enumObj} from "./../../../../utils";
 
 export default function FilterBar(props){
 
-  let {filterStatus, filterIt, clearCompleted, lilWindowState} = useContext(context);
+  let {filterStatus, filterIt, clearCompleted, lilWindowState, theme} = useContext(context);
 
   let flag;
 

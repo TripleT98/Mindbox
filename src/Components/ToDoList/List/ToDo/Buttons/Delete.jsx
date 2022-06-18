@@ -9,7 +9,7 @@ export default function Delete({id, isDone}){
 
   let con = useContext(context)
 
-  return <StyledDelete onClick={()=>{if(!isDone){con.removeToDo(id)}}} isDone={isDone}>
+  return <StyledDelete onClick={()=>{if(!isDone){con.removeToDo(id)}}} isDone={isDone} theme={con.theme}>
             Delete
          </StyledDelete>
 }
