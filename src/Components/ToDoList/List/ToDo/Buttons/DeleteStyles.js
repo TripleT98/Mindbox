@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 
 let StyledDelete = styled.div`
   background-color: white;
-  width: 60px;
+  width: max-content;
   height: 50px;
   max-width: 100%;
   padding: 5px;

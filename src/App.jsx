@@ -8,7 +8,7 @@ import {useState} from "react";
 function App() {
 
   let [theme, setTheme] = useState("bright");
-  let [lang, setLang] = useState("eng");
+  let [lang, setLang] = useState("en");
 
   return (
     <StyledApp theme={theme}>

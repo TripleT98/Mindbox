@@ -81,11 +81,12 @@ export default function ToDoList(props){
             clearCompleted:clearCompletedHandler,
             setTimeFilter,
             lilWindowState,
-            theme: props.theme
+            theme: props.theme,
+            lang: props.lang,
           }}>
             {lilWindowState && <Dropdown theme={props.theme} />}
-            <Header setTheme={props.setTheme} theme={props.theme}/>
-            <Inputs theme={props.theme}/>
+            <Header setTheme={props.setTheme} theme={props.theme} setLang={props.setLang} lang={props.lang}/>
+            <Inputs theme={props.theme} lang={props.lang}/>
             <StyledHr theme={props.theme}/>
             <List list={todoes} filterStatus={filterStatus} timeFilter={timeFilter}/>
             <Footer theme={props.theme}/>

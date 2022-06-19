@@ -10,7 +10,7 @@ function TimeFilter(){
   let [val, setVal] = useState("");
   let [t, setT] = useState();
 
-  let {setTimeFilter} = useContext(context);
+  let {setTimeFilter, lang} = useContext(context);
 
   function changeHandler(e){
     let str = e.target.value;
@@ -23,7 +23,7 @@ function TimeFilter(){
 
   return <StyledTimeFilter>
            <span>
-             Days
+             {lang == "ru"?"Дни":"Days"}
            </span>
            <StyledTimeInput type="text" value={val} onChange={changeHandler}/>
          </StyledTimeFilter>

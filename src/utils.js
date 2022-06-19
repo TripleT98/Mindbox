@@ -21,6 +21,9 @@ let enumObj = {
   all:0,
   active:1,
   completed:2,
+  ["все"]: 0,
+  ["активные"]: 1,
+  ["выполненные"]: 2
 }
 
 export {

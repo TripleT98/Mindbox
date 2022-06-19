@@ -12,7 +12,7 @@ import {enumObj} from "./../../../../utils";
 
 export default function FilterBar(props){
 
-  let {filterStatus, filterIt, clearCompleted, lilWindowState, theme} = useContext(context);
+  let {filterStatus, filterIt, clearCompleted, lilWindowState, theme, lang} = useContext(context);
 
   let flag;
 
@@ -30,11 +30,11 @@ export default function FilterBar(props){
   }
 
   return <StyledFilterBar>
-            {flag && <><StyledButton filterStatus={filterStatus == enumObj["all"]} onClick={filterHandler}>All</StyledButton>
-            <StyledButton filterStatus={filterStatus == enumObj["active"]} onClick={filterHandler}>Active</StyledButton>
-            <StyledButton filterStatus={filterStatus == enumObj["completed"]} onClick={filterHandler}>Completed</StyledButton></>}
+            {flag && <><StyledButton filterStatus={filterStatus == enumObj["all"]} onClick={filterHandler}>{lang == "ru"?"Все":"All"}</StyledButton>
+            <StyledButton filterStatus={filterStatus == enumObj["active"]} onClick={filterHandler}>{lang == "ru"?"Активные":"Active"}</StyledButton>
+            <StyledButton filterStatus={filterStatus == enumObj["completed"]} onClick={filterHandler}>{lang == "ru"?"Выполненные":"Completed"}</StyledButton></>}
             {props.children}
-            {flag && <><StyledButton onClick={clearCompleted}>Clear completed</StyledButton>
+            {flag && <><StyledButton onClick={clearCompleted}>{lang == "ru"?"Удалить выполненные":"Clear completed"}</StyledButton>
             <TimeFilter /></>}
          </StyledFilterBar>
 }

@@ -9,7 +9,7 @@ import {useState} from "react";
 import {maxLength, minLength, isEmpty} from "./validators";
 
 
-export default function Inputs({theme}){
+export default function Inputs({theme, lang}){
   let [titleBlur, switchTitleBlur] = useState(false);
   let [textBlur, switchTextBlur] = useState(false);
 
@@ -28,10 +28,10 @@ export default function Inputs({theme}){
   }
 
   return <StyledInputs theme={theme}>
-            <Input name="Title" value={title} handler={setTitle} validators={[isEmpty, maxLength(20), minLength(5)]} blur={titleBlur} switchBlur={switchTitleBlur} visited={isVisitedTitle} visit={visitTitle} errorM={titleError} setErrorM={setTitleError} />
-            <Input name="Description" value={text} handler={setText} validators={[maxLength(70)]} blur={textBlur} switchBlur={switchTextBlur} visited={isVisitedText} visit={visitText} errorM={textError} setErrorM={setTextError} />
+            <Input name="Title" id={lang == "ru" ? "Заголовок" : "Title"} value={title} handler={setTitle} validators={[isEmpty, maxLength(20), minLength(5)]} blur={titleBlur} switchBlur={switchTitleBlur} visited={isVisitedTitle} visit={visitTitle} errorM={titleError} setErrorM={setTitleError} />
+            <Input name="Description" id={lang == "ru" ? "Описание" : "Description"} value={text} handler={setText} validators={[maxLength(70)]} blur={textBlur} switchBlur={switchTextBlur} visited={isVisitedText} visit={visitText} errorM={textError} setErrorM={setTextError} />
             <FilterBar>
-                  <Button title={title} text={text} clear={clear} setErrorM={setTitleError} isError={(titleError.length !== 0 || textError.length !== 0) || title.length == 0}/>
+                  <Button lang={lang} title={title} text={text} clear={clear} setErrorM={setTitleError} isError={(titleError.length !== 0 || textError.length !== 0) || title.length == 0}/>
             </FilterBar>
          </StyledInputs>
 

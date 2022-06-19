@@ -3,7 +3,7 @@ import {StyledInput,StyledInputContainer,StyledP, StyledError} from "./InputStyl
 //react hooks, HOC's
 import {memo} from "react";
 
-function Input({value, handler, name, blur, switchBlur, visited, visit, validators, errorM, setErrorM}){
+function Input({value, handler, name, blur, switchBlur, visited, visit, validators, errorM, setErrorM, id}){
 
   function validate(str){
     let isValid;
@@ -29,7 +29,7 @@ function Input({value, handler, name, blur, switchBlur, visited, visit, validato
   }
 
   return <StyledInputContainer>
-            <StyledP>{name}</StyledP>
+            <StyledP>{id}</StyledP>
             <StyledInput name={name} type="text" value={value} onChange={inputHandler} onBlur={(e)=>{switchBlur(!blur);validate(e.target.value)}} onFocus={()=>{if(!visited){visit(true)};switchBlur(!blur)}} blur={blur}/>
             <StyledError>{!visited || errorM}</StyledError>
          </StyledInputContainer>

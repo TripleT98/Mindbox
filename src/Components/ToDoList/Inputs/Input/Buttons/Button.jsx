@@ -6,7 +6,7 @@ import context from "./../../../context";
 //utils
 import {hashCode} from "./../../../../../utils";
 
-export default function Button({title, text, clear, isError, setErrorM}){
+export default function Button({title, text, clear, isError, setErrorM, lang}){
   let ref = useRef(new Date().toLocaleDateString());
   let ms = useRef(new Date());
   ms = ms.current/1;
@@ -23,7 +23,7 @@ export default function Button({title, text, clear, isError, setErrorM}){
   }
 
   return <StyledButton onClick={clickHandler} isError={isError}>
-            Add
+            {lang == "ru"? "Добавить" : "Add"}
          </StyledButton>
 
 }

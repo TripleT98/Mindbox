@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 
 let StyledButton = styled.button`
-  width: 80px;
+  min-width: 80px;
   height: 45px;
   margin: 20px 0px;
   background-color: rgb(55, 233, 110);
