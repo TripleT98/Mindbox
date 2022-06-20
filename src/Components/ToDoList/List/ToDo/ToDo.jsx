@@ -28,7 +28,7 @@ function ToDo(props){
               </StyledBlock>
 
               <StyledBlock width="10">
-                <StyledArrow isOpen={isOpen} onClick={()=>open(!isOpen)}/>
+                <StyledArrow isOpen={isOpen} onClick={()=>open(!isOpen)} theme={props.theme}/>
               </StyledBlock>
             </StyledMain>
             <StyledDescription isOpen={isOpen}>

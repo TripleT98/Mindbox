@@ -7,7 +7,7 @@ import ToDo from "./ToDo/ToDo";
 //utils
 import {enumObj, getMS} from "./../../../utils";
 
-function List({list, filterStatus, timeFilter}){
+function List({list, filterStatus, timeFilter, theme}){
 
   let {all, active, completed} = enumObj;
 
@@ -28,7 +28,7 @@ function List({list, filterStatus, timeFilter}){
   }
 
   return <StyledList>
-            {list.length != 0 ? list.map((e,i)=><ToDo key={e.id} {...e}/>):
+            {list.length != 0 ? list.map((e,i)=><ToDo key={e.id} {...e} theme={theme}/>):
             <StyledFallback>{filterStatus == 0?"U have no todos yet":"This category is empty"}</StyledFallback>}
          </StyledList>
 
