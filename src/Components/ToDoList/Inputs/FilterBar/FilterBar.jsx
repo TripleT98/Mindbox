@@ -29,7 +29,7 @@ export default function FilterBar(props){
     e.stopPropagation();
   }
 
-  return <StyledFilterBar>
+  return <StyledFilterBar flag={flag}>
             {flag && <><StyledButton filterStatus={filterStatus == enumObj["all"]} onClick={filterHandler}>{lang == "ru"?"Все":"All"}</StyledButton>
             <StyledButton filterStatus={filterStatus == enumObj["active"]} onClick={filterHandler}>{lang == "ru"?"Активные":"Active"}</StyledButton>
             <StyledButton filterStatus={filterStatus == enumObj["completed"]} onClick={filterHandler}>{lang == "ru"?"Выполненные":"Completed"}</StyledButton></>}

@@ -1,6 +1,7 @@
 import styled,{css} from "styled-components";
 
 let StyledFilterBar = styled.div`
+  margin-right: ${({flag})=>flag && "55px"};
   height: 30px;
   display: flex;
   justify-content: space-around;
@@ -35,7 +36,7 @@ let StyledButton = styled.div`
 `
 
 let StyledTimeInput = styled.input`
-  margin: 0 45px 0 10px;
+  margin: 0 0 0 10px;
   width: 50px;
   height: 31px;
   outline: none;
