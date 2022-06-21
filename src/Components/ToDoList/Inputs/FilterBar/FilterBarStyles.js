@@ -1,7 +1,7 @@
 import styled,{css} from "styled-components";
 
 let StyledFilterBar = styled.div`
-  margin-right: ${({flag})=>flag && "55px"};
+  margin-right: ${({flag})=>flag && "65px"};
   height: 30px;
   display: flex;
   justify-content: space-around;

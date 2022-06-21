@@ -88,7 +88,7 @@ export default function ToDoList(props){
             <Header setTheme={props.setTheme} theme={props.theme} setLang={props.setLang} lang={props.lang}/>
             <Inputs theme={props.theme} lang={props.lang}/>
             <StyledHr theme={props.theme}/>
-            <List list={todoes} filterStatus={filterStatus} timeFilter={timeFilter} theme={props.theme}/>
+            <List list={todoes} filterStatus={filterStatus} timeFilter={timeFilter} theme={props.theme} lang={props.lang}/>
             <Footer theme={props.theme}/>
           </Context.Provider>
          </StyledToDoList>

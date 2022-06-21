@@ -7,7 +7,7 @@ import ToDo from "./ToDo/ToDo";
 //utils
 import {enumObj, getMS} from "./../../../utils";
 
-function List({list, filterStatus, timeFilter, theme}){
+function List({list, filterStatus, timeFilter, theme, lang}){
 
   let {all, active, completed} = enumObj;
 
@@ -29,7 +29,7 @@ function List({list, filterStatus, timeFilter, theme}){
 
   return <StyledList>
             {list.length != 0 ? list.map((e,i)=><ToDo key={e.id} {...e} theme={theme}/>):
-            <StyledFallback>{filterStatus == 0?"U have no todos yet":"This category is empty"}</StyledFallback>}
+            <StyledFallback>{filterStatus == 0? lang == "ru" ? "У вас еще нет заданий" : "U have no todos yet" : lang == "ru" ? "Эта категория пуста" : "This category is empty"}</StyledFallback>}
          </StyledList>
 
 }
